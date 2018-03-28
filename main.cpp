@@ -67,6 +67,9 @@ int main()
     //1-C-1.  turn should be assigned the value 'X'
     
     cout<<"\nBOARD\n-----\n";
+    cout<<"   \n";
+    cout<<"   \n";
+    cout<<"   \n";
     //TODO: Print the current board
     //Outline
     //1. Traverse through each row, calling the current row r
