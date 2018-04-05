@@ -72,11 +72,15 @@ int main()
     {
         for( int p = 0; p < COLUMNS; p++ )
         {
-            cout<<board[i][p];
+            cout<<board[i][p]<<" ";
+            
         }
         cout<<endl;
     }
-    
+   
+
+
+
     if( board[0][0] == board [1][0] && board[0][0] == board[2][0] )
     {
         if( board[0][0] != ' ' )
