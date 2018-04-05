@@ -169,8 +169,12 @@ int main()
     //1-B. Display an newline to move to the next row of the board
     
   }while( playing );
-
-  cout<<"Winner is "<<winner<<endl<<"Goodbye!\n";
+  
+  if( winner != ' ' )
+  {
+  cout<<"Winner is "<<winner<<endl;
+  }
+  cout<<"Goodbye!\n";
 
   return 0;
 }
