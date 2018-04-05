@@ -1,4 +1,4 @@
-//Author:
+//Author:Ryan Persons
 #include <iostream>
 
 using namespace std;
@@ -22,6 +22,7 @@ int main()
   int row;
   int column;
   bool playing = true; //Continue playing by default
+  char winner = ' ';
 
   do
   {
@@ -31,7 +32,7 @@ int main()
     cin>>row;
 
     //Make sure the user isn't quitting
-    if(column == QUIT && row == QUIT)
+    if(column == QUIT || row == QUIT)
     {
       playing = false;
     }
@@ -48,7 +49,7 @@ int main()
       {
         turn = O;
       }
-      else if(turn == O)
+      else
       {
         turn = X;
       }
@@ -67,9 +68,94 @@ int main()
     //1-C-1.  turn should be assigned the value 'X'
     
     cout<<"\nBOARD\n-----\n";
-    cout<<"   \n";
-    cout<<"   \n";
-    cout<<"   \n";
+    for( int i = 0; i < ROWS; i++ )
+    {
+        for( int p = 0; p < COLUMNS; p++ )
+        {
+            cout<<board[i][p];
+        }
+        cout<<endl;
+    }
+    
+    if( board[0][0] == board [1][0] && board[0][0] == board[2][0] )
+    {
+        if( board[0][0] != ' ' )
+        {
+            winner = board[0][0];
+            playing = false;
+        }
+    }
+    if( board[0][1] == board [1][1] && board[0][1] == board[2][1] )
+    {
+        if( board[0][1] != ' ' )
+        {
+            winner = board[0][1];
+            playing = false;
+        }
+    }
+    if( board[0][2] == board [1][2] && board[0][2] == board[2][2] )
+    {
+        if( board[0][2] != ' ' )
+        {
+            winner = board[0][2];
+            playing = false;
+        }
+    }
+
+
+    if( board[0][0] == board [0][1] && board[0][0] == board[0][2] )
+    {
+        if( board[0][0] != ' ' )
+        {
+            winner = board[0][0];
+            playing = false;
+        }
+    }
+    if( board[1][0] == board [1][1] && board[1][0] == board[1][2] )
+    {
+        if( board[1][0] != ' ' )
+        {
+            winner = board[1][0];
+            playing = false;
+        }
+    }
+    if( board[2][0] == board [2][1] && board[2][0] == board[2][2] )
+    {
+        if( board[2][0] != ' ' )
+        {
+            winner = board[2][0];
+            playing = false;
+        }
+    }
+
+
+
+    if( board[0][0] == board [1][1] && board[0][0] == board[2][2] )
+    {
+        if( board[0][0] != ' ' )
+        {
+            winner = board[0][0];
+            playing = false;
+        }
+    }
+    if( board[2][0] == board [1][1] && board[2][0] == board[0][2] )
+    {
+        if( board[2][0] != ' ' )
+        {
+            winner = board[2][0];
+            playing = false;
+        }
+    }
+
+
+
+
+
+
+
+
+   
+    
     //TODO: Print the current board
     //Outline
     //1. Traverse through each row, calling the current row r
@@ -80,7 +166,7 @@ int main()
     
   }while( playing );
 
-  cout<<"Goodbye!\n";
+  cout<<"Winner is "<<winner<<endl<<"Goodbye!\n";
 
   return 0;
 }
